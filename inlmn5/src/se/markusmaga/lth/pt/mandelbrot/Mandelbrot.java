@@ -29,6 +29,8 @@ public class Mandelbrot {
 		this.currentScale	= scale;
 	}
 	
+	private double calculateRe(double re, double a);
+	
 	private int calculate(double re, double im) {
 		double a=0, b=0;
 		
