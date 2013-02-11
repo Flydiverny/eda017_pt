@@ -47,7 +47,7 @@ public class Mandelbrot {
 			// c = re + im
 			// z2 = z^2 + c
 			
-			double atemp = calculateRe(im, a, b);
+			double atemp = calculateRe(re, a, b);
 			b = calculateIm(im, a, b);
 			a = atemp;
 			iterations++;
