@@ -29,7 +29,13 @@ public class Mandelbrot {
 		this.currentScale	= scale;
 	}
 	
-	private double calculateRe(double re, double a);
+	private double calculateRe(double re, double a, double b) {
+		return a * a - b * b + re;
+	}
+	
+	private double calculateIm(double im, double a, double b) {
+		return 2 * a * b + im;
+	}
 	
 	private int calculate(double re, double im) {
 		double a=0, b=0;
@@ -41,8 +47,8 @@ public class Mandelbrot {
 			// c = re + im
 			// z2 = z^2 + c
 			
-			double atemp = a * a - b * b + re;
-			b = 2 * a * b + im;
+			double atemp = calculateRe(im, a, b);
+			b = calculateIm(im, a, b);
 			a = atemp;
 			iterations++;
 		}
