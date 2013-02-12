@@ -1,0 +1,8 @@
+Submodule helper info
+http://git-scm.com/book/en/Git-Tools-Submodules
+
+New clone?
+
+Run:
+git submodule init
+git submodule update
