@@ -90,8 +90,6 @@ public class Mandelbrot {
 	}
 	
 	public void display(DotWindow_ w) {
-		w.setAutoUpdate(false);
-	
 		for(int x = 0; x < w.getWidth(); x++) {
 			for(int y = 0; y < w.getHeight(); y++) {
 				double im = yToIm(y, w.getHeight());
@@ -101,9 +99,6 @@ public class Mandelbrot {
 				w.setDot(x, y, getColor(iterations));
 			}
 		}
-		
-		w.update();
-		w.setAutoUpdate(true);
 	}
 	
 	public Color getColor(int it) {

@@ -60,6 +60,7 @@ public class MandelbrotWindow {
 		int x=0, y=0;
 		while(true) {
 			m.display(w);
+			w.update();
 			
 			GameEvent event = w.getNextEvent();
 			switch (event.getKind()) {
