@@ -108,6 +108,30 @@ public class Mandelbrot {
 		this.currentScale = scale;
 	}
 	
+	public void setScaleByX(int max, int min, int width) {
+		double x1 = xToRe(min, width);
+		double x2 = xToRe(max, width);
+		
+		System.out.println(x2-x1);
+		setScale(x2-x1);
+	}
+	
+	public void setScaleByY(int max, int min, int height) {
+		double y1 = yToIm(min, height);
+		double y2 = yToIm(max, height);
+
+		System.out.println(y2-y1);
+		setScale(y2-y1);
+	}
+
+    /**
+     * Gets current scale
+     * @return double - scale
+     */
+	public double getScale() {
+		return this.currentScale;
+	}
+	
 	/**
 	 * Set complex number used as the center for displaying Mandelbrot.
 	 * @param re - Real part of complex number.
