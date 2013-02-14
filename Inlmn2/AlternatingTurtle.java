@@ -29,19 +29,19 @@ public class AlternatingTurtle extends Turtle {
 		}
 		
 		int blocks = distance / this.lineWidth;
-		
-		goalDrawer(blocks);
-		goalRotation(blocks);
-		goalDrawer(blocks);
+		alternatingDrawer(blocks);
 	}
 	
 	public void drawGoal(int distance) {
 		penDown();
-		forward(distance);
+		int blocks = distance / this.lineWidth;
+		alternatingDrawer(blocks);
+		goalRotation(blocks);
+		alternatingDrawer(blocks);
 		penUp();
 	}
 	
-	private void goalDrawer(int blocks) {
+	private void alternatingDrawer(int blocks) {
 		for(int i = 0; i < blocks; i++) {
 			super.forward(this.lineWidth);
 			

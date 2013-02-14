@@ -55,13 +55,11 @@ class TurtleRace {
 		
 		int offset = 25;
 		
-		Turtle g = new AlternatingTurtle(w, FINISH_LINE_X, -offset);
+		AlternatingTurtle g = new AlternatingTurtle(w, FINISH_LINE_X, -offset);
 		g.setSpeed(200);
 		g.left(180);
 		g.forward(LINE_TOP_Y+offset);
-		g.penDown();
-		g.forward(LINE_BOT_Y-LINE_TOP_Y);
-		g.penUp();
+		g.drawGoal(LINE_BOT_Y-LINE_TOP_Y);
 		g.forward(LINE_TOP_Y+offset);
 		
 		return w;
