@@ -1,4 +1,5 @@
-﻿import se.lth.cs.pt.graphics.basic.GraphicsWindow;
+import se.lth.cs.pt.graphics.basic.GraphicsWindow;
+import se.lth.cs.pt.graphics.Color;
 import se.lth.cs.pt.io.Keyboard;
 import se.lth.cs.pt.turtle.visible.Turtle;
 import se.lth.cs.pt.graphics.Color;
@@ -9,11 +10,11 @@ class TurtleRace {
 
 	private List<Turtle> turtles;
 
-	public static final double	LINE_TOP_Y		= 50;
-	public static final double	LINE_BOT_Y		= 250;
-	public static final double	START_LINE_X	= 50;
-	public static final double	FINISH_LINE_X	= 450;
-	public static final int		TURTLE_SPEED	= 5;
+	public static final int	LINE_TOP_Y		= 50;
+	public static final int	LINE_BOT_Y		= 250;
+	public static final int	START_LINE_X	= 50;
+	public static final int	FINISH_LINE_X	= 450;
+	public static final int	TURTLE_SPEED	= 5;
 
     public static void main(String[] args) {
         new TurtleRace().run();
@@ -50,7 +51,15 @@ class TurtleRace {
 		GraphicsWindow w = new GraphicsWindow(width, height);
 		
 		w.drawLine(START_LINE_X, LINE_TOP_Y, START_LINE_X, LINE_BOT_Y, 2, Color.RED);
-		w.drawLine(FINISH_LINE_X, LINE_TOP_Y, FINISH_LINE_X, LINE_BOT_Y, 2, Color.RED);	
+//		w.drawLine(FINISH_LINE_X, LINE_TOP_Y, FINISH_LINE_X, LINE_BOT_Y, 2, Color.RED);	
+		
+		int offset = 25;
+		
+		GoalTurtle g = new GoalTurtle(w, FINISH_LINE_X, -offset);
+		g.left(180);
+		g.forward(LINE_TOP_Y+offset);
+		g.drawGoal(LINE_BOT_Y-LINE_TOP_Y);
+		g.forward(LINE_TOP_Y+offset);
 
 		return w;
 	}
@@ -118,7 +127,7 @@ class TurtleRace {
 	 * @param yPos Position i y-led att skapa sköldpaddan på
 	 */
 	private void createTurtle(GraphicsWindow w, int speed, double yPos) {
-		Turtle t = new Turtle(w, START_LINE_X, yPos);
+		Turtle t = new ColorTurtle(w, START_LINE_X, yPos, Color.BLUE);
 		t.setSpeed(speed); //Snabba upp lite med synliga paddor
 		turtles.add(t);
 		t.right(90);
