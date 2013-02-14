@@ -2,13 +2,20 @@ import se.lth.cs.pt.turtle.visible.Turtle;
 import se.lth.cs.pt.graphics.GraphicsWindow_;
 import se.lth.cs.pt.graphics.Color;
 
-public class GoalTurtle extends Turtle {
-	protected Color mainColor = Color.BLACK;
-	protected Color altColor = Color.WHITE;
+public class AlternatingTurtle extends Turtle {
+	protected Color mainColor;
+	protected Color altColor;
 
-	public GoalTurtle(GraphicsWindow_ w, double x, double y) {
+	public AlternatingTurtle(GraphicsWindow_ w, double x, double y) {
+		this(w, x, y, Color.BLACK, Color.WHITE);
+	}
+	
+	public AlternatingTurtle(GraphicsWindow_ w, double x, double y, Color mC, Color aC) {
 		super(w, x, y);
 		this.lineWidth = 5;
+		this.lineColor = mC;
+		this.mainColor = mC;
+		this.altColor = aC;
 	}
 	
 	public void setLineWidth(int width) {
