@@ -62,6 +62,10 @@ class TurtleRace {
 		g.drawGoal(LINE_BOT_Y-LINE_TOP_Y);
 		g.forward(LINE_TOP_Y+offset);
 		
+		HeartTurtle h = new HeartTurtle(w, 250, 150, Color.RED);
+		h.setSpeed(1000);
+		h.drawHeart();
+		
 		return w;
 	}
 	
