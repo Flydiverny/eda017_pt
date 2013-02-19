@@ -8,7 +8,7 @@ import java.util.*;
 
 class TurtleRace {
 
-	private List<Turtle> turtles;
+	private List<Thread> threads;
 
 	public static final int	LINE_TOP_Y		= 50;
 	public static final int	LINE_BOT_Y		= 250;
@@ -26,7 +26,7 @@ class TurtleRace {
 	void run() {
 		int antal = getAmountOfTurtles(); // Läs in önskat antal paddiz
 
-		turtles = new ArrayList<Turtle>(); // Initisera lista.
+		threads = new ArrayList<Thread>(); // Initisera lista.
 
 		// Skapa ett fint fönster
 		GraphicsWindow w = createWindow(500,300);
@@ -62,9 +62,9 @@ class TurtleRace {
 		g.drawGoal(LINE_BOT_Y-LINE_TOP_Y);
 		g.forward(LINE_TOP_Y+offset);
 		
-		HeartTurtle h = new HeartTurtle(w, 250, 150, Color.RED);
-		h.setSpeed(1000);
-		h.drawHeart();
+		//HeartTurtle h = new HeartTurtle(w, 250, 150, Color.RED);
+		//h.setSpeed(1000);
+		//h.drawHeart();
 		
 		return w;
 	}
@@ -76,23 +76,22 @@ class TurtleRace {
 		Die d = new Die();
 	
 		do {
-			for (Turtle t : turtles) {
-				d.roll();
-				t.forward(d.getNbrOfSpots());
+			for (Thread t : threads) {
+				t.start();
 			}
 		} while (noWinner());
 		
-		congratulateWinners();
+		//congratulateWinners();
 	}
 	
 	/**
 	 * Gratulerar vinnar sköldpaddizarna
 	 */
-	private void congratulateWinners() {
+/* 	private void congratulateWinners() {
 		String outputWinners = "";
 		int winners = 0, winner=0;
 		
-		for (int i = 0; i < turtles.size(); i++) {
+		for (int i = 0; i < threads.size(); i++) {
 			if (turtles.get(i).getX() < FINISH_LINE_X) continue;
 			
 			outputWinners += (i+1) + " "; // i+1 = human readable
@@ -106,15 +105,15 @@ class TurtleRace {
 		}
 
 		System.out.println("Vinnare blev: " + outputWinners);
-	}
+	} */
 	
 	/**
 	 * Kontrollerar ifall någon sköldpaddiz har passerat mållinjen.
 	 */
 	private boolean noWinner() {
-		for (Turtle t : turtles) {
+		/* for (Turtle t : turtles) {
 			if (t.getX() > FINISH_LINE_X) return false;
-		}
+		} */
 		return true;
 	}
 	
@@ -132,10 +131,11 @@ class TurtleRace {
 	 * @param yPos Position i y-led att skapa sköldpaddan på
 	 */
 	private void createTurtle(GraphicsWindow w, int speed, double yPos) {
-		Turtle t = new ColorTurtle(w, START_LINE_X, yPos, Color.BLUE);
+		threads.add(new Thread(new ThreadTurtle(w, START_LINE_X, yPos, Color.BLUE)));
+		/* Turtle t = ;
 		t.setSpeed(speed); //Snabba upp lite med synliga paddor
-		turtles.add(t);
+		
 		t.right(90);
-		t.penDown();
+		t.penDown(); */
 	}
 }

@@ -38,7 +38,7 @@ public class HeartTurtle extends ColorTurtle {
 			if(i % 2 == 0)
 				increasingRotation(distance*2, true);
 			else
-				increasingRotation((int)(distance*0.9), false);
+				increasingRotation((int)(distance)-distance*0.1*i, false);
 		}
 	}
 	
