@@ -11,7 +11,6 @@ public class StalkerTurtle extends RaceTurtle {
 	
 	public StalkerTurtle(GraphicsWindow_ w, double x, double y, int startNumber) {
 		this(w, x, y, startNumber, null);
-		this.lineColor = new Color(255, 105, 180);
 	}
 	
 	public StalkerTurtle(GraphicsWindow_ w, double x, double y, int startNumber, RaceTurtle target) {
@@ -26,6 +25,11 @@ public class StalkerTurtle extends RaceTurtle {
 	
 	public boolean hasTarget() {
 		return this.target != null;
+	}
+	
+	@Override
+	public Color getColor() {
+		return new Color(255, 105, 180); //pink
 	}
 	
 	@Override

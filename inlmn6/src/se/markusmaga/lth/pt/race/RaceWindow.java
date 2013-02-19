@@ -63,18 +63,62 @@ public class RaceWindow {
 		
 		w.show();
 		
-		drawGoalLine();
+		//drawGoalLine();
 		race();
 	}
 	
 	public void race() {
+		List<RaceTurtle> winners = new ArrayList<RaceTurtle>();
+		
 		do {
 			for(int i = 0; i < racers.size(); i++) {
 				RaceTurtle t = racers.get(i);
 				
 				t.raceStep();
+				
+				if(t.getX() >= LINE_GOAL_X) {
+					winners.add(t);
+					racers.remove(t);
+					i--;
+				}
 			}
-		} while(true);
+		} while(!fullWinnerTable(winners));
+		
+		printWinners(winners);
+	}
+	
+	private boolean fullWinnerTable(List<RaceTurtle> winners) {
+		if(winners.size() < 3) return false;
+		
+		int lastSteps = 0;
+		int placement = 1;
+		for(RaceTurtle t : winners) {
+			if(t.getAmountOfSteps() != lastSteps) {
+				lastSteps = t.getAmountOfSteps();
+				placement++;
+				
+				if(placement > 3) return true;
+			}
+		}
+		
+		return placement > 3;
+	}
+	
+	private void printWinners(List<RaceTurtle> winners) {
+		StringBuilder output = new StringBuilder();
+
+		int lastSteps = 0;
+		int placement = 1;
+		for(RaceTurtle t : winners) {
+			if(t.getAmountOfSteps() != lastSteps) {
+				output.append(placement++ + ":");
+				lastSteps = t.getAmountOfSteps();
+			}
+			
+			output.append("\t" + t.getAmountOfSteps() + " steps -- " + t + "\n");
+		}
+		
+		System.out.print(output.toString());
 	}
 	
 	public void printRacers() {
@@ -86,9 +130,10 @@ public class RaceWindow {
 	private void drawGoalLine() {
 		int offset = 25;
 		
-		/* GoalTurtle g = new GoalTurtle(w, LINE_GOAL_X, -offset);
+		GoalTurtle g = new GoalTurtle(w, LINE_GOAL_X, -offset);
 		g.left(180); // look down
-		g.drawGoal(LINE_OFFSET_Y+offset, LINE_BOT_Y-LINE_OFFSET_Y); // draw */
+		g.forward(LINE_OFFSET_Y+offset);
+		g.drawGoal(LINE_BOT_Y-LINE_OFFSET_Y); // draw 
 	}
 	
 	private void generateRacers() {
@@ -99,7 +144,7 @@ public class RaceWindow {
 		Random rnd = new Random();
 		int number = 0;
 		do {
-			switch(rnd.nextInt(4)) {
+			switch(rnd.nextInt(5)) {
 				case 0:
 					if(allowSerious) {
 						number++;
@@ -109,7 +154,7 @@ public class RaceWindow {
 				case 1:
 					if(allowMole) {
 						number++;
-						racers.add(new SeriousRacerTurtle(w, LINE_OFFSET_X, LINE_OFFSET_Y + turtleSpace*number, number));
+						racers.add(new MoleTurtle(w, LINE_OFFSET_X, LINE_OFFSET_Y + turtleSpace*number, number));
 					}
 					break;
 				case 2:
@@ -121,7 +166,7 @@ public class RaceWindow {
 				case 3:
 					if(allowDrunk) {
 						number++;
-						racers.add(new AbsentMindedTurtle(w, LINE_OFFSET_X, LINE_OFFSET_Y + turtleSpace*number, number, rnd.nextInt(100)));
+						racers.add(new DrunkTurtle(w, LINE_OFFSET_X, LINE_OFFSET_Y + turtleSpace*number, number, rnd.nextInt(5)+1));
 					}
 					break;
 				case 4:

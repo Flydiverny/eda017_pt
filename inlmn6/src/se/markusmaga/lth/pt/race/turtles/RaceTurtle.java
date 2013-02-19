@@ -1,13 +1,14 @@
 package se.markusmaga.lth.pt.race.turtles;
 
-import se.lth.cs.pt.turtle.visible.Turtle;
+import se.lth.cs.pt.turtle.Turtle;
 import se.lth.cs.pt.die.Die;
 import se.lth.cs.pt.graphics.GraphicsWindow_;
 import se.lth.cs.pt.graphics.Color;
 
-public abstract class RaceTurtle extends Turtle {
-	private static final int DEFAULT_DIE = 6;
-	
+public abstract class RaceTurtle extends Turtle implements Comparable<RaceTurtle> {
+	private static final int DEFAULT_DIE = 12;
+	private static final int DEFAULT_SPEED = 5;
+
 	private int startNumber;
 	protected Die die;
 	private int amountOfSteps = 0;
@@ -21,12 +22,11 @@ public abstract class RaceTurtle extends Turtle {
 		
 		die = new Die(dieSize);
 		this.startNumber = startNumber;
-		setSpeed(2000);
+		//setSpeed(2000);
 		right(90);
 		penDown();
 		
-		
-		setSpeed(5);
+		//setSpeed(DEFAULT_SPEED);
 	}
 	
 	public int getStartNumber() {
@@ -42,12 +42,30 @@ public abstract class RaceTurtle extends Turtle {
 	public int getAmountOfSteps() {
 		return this.amountOfSteps;
 	}
-	
+
 	public abstract void raceStep();
 	
 	public abstract String getType();
 	
+	public abstract Color getColor();
+	
 	public String toString() {
 		return "Number " + getStartNumber() + " (" + getType() + ")";
+	}
+	
+	public void forward(int distance)
+	{
+		double d1 = this.x;
+		double d2 = this.y;
+		this.x += distance * Math.cos(Math.toRadians(this.dir));
+		this.y -= distance * Math.sin(Math.toRadians(this.dir));
+		
+		if (this.draws)
+		  this.w.drawLine(d1, d2, this.x, this.y, 2.0D, this.getColor());
+	}
+	
+	@Override
+	public int compareTo(RaceTurtle rt) {
+		return getAmountOfSteps()-rt.getAmountOfSteps();
 	}
 }

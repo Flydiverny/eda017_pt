@@ -7,7 +7,11 @@ public class SeriousRacerTurtle extends RaceTurtle {
 
 	public SeriousRacerTurtle(GraphicsWindow_ w, double x, double y, int startNumber) {
 		super(w, x, y, startNumber);
-		this.lineColor = new Color(255, 0, 0); //red
+	}
+		
+	@Override
+	public Color getColor() {
+		return new Color(255, 0, 0); //red
 	}
 	
 	@Override

@@ -12,7 +12,11 @@ public class AbsentMindedTurtle extends RaceTurtle {
 		super(w, x, y, startNumber);
 		
 		this.absentPercent = absentPercent;
-		this.lineColor = new Color(0, 191, 255); //blue
+	}
+	
+	@Override
+	public Color getColor() {
+		return new Color(0, 191, 255); //blue
 	}
 	
 	@Override

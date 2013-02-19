@@ -17,11 +17,9 @@ public class GoalTurtle extends Turtle {
 		this.lineWidth = width;
 	}
 	
-	public void drawGoal(int nonDraw, int distance) {
+	public void drawGoal(int distance) {
 		int blocks = distance / this.lineWidth;
-		
-		forward(nonDraw);
-		
+			
 		penDown();
 		
 		goalDrawer(blocks);
@@ -31,8 +29,6 @@ public class GoalTurtle extends Turtle {
 		goalDrawer(blocks);
 		
 		penUp();
-		
-		forward(nonDraw);
 		
 		w.remove(this.sprite);
 	}
