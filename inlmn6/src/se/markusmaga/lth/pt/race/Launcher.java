@@ -1,9 +1,7 @@
-package se.markusmaga.lth.pt.mandelbrot;
+package se.markusmaga.lth.pt.race;
 
 import se.markusmaga.lth.pt.helper.options.*;
 import se.markusmaga.lth.pt.helper.*;
-
-import se.lth.cs.pt.dots.listeners.DotWindow;
 
 public class Launcher extends OptionsLauncher {
 	private static final int DEFAULT_VALUE = 1;
@@ -15,7 +13,6 @@ public class Launcher extends OptionsLauncher {
 	private void initiate() {
 
 	}
-	
 
 	/**
 	 * Sets up the menu alternatives and their callbacks.

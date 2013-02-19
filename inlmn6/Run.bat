@@ -1,1 +1,1 @@
-java se.markusmaga.lth.pt.mandelbrot.Launcher
+java se.markusmaga.lth.pt.race.Launcher
