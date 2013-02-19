@@ -1,3 +1,5 @@
+package se.markusmaga.lth.pt.race.turtles;
+
 import se.lth.cs.pt.turtle.visible.Turtle;
 import se.lth.cs.pt.graphics.GraphicsWindow_;
 import se.lth.cs.pt.graphics.Color;
@@ -15,8 +17,10 @@ public class GoalTurtle extends Turtle {
 		this.lineWidth = width;
 	}
 	
-	public void drawGoal(int distance) {
+	public void drawGoal(int nonDraw, int distance) {
 		int blocks = distance / this.lineWidth;
+		
+		forward(nonDraw);
 		
 		penDown();
 		
@@ -27,6 +31,10 @@ public class GoalTurtle extends Turtle {
 		goalDrawer(blocks);
 		
 		penUp();
+		
+		forward(nonDraw);
+		
+		w.remove(this.sprite);
 	}
 	
 	private void goalDrawer(int blocks) {

@@ -4,11 +4,10 @@ import se.lth.cs.pt.graphics.GraphicsWindow_;
 import se.lth.cs.pt.graphics.Color;
 
 public class SeriousRacerTurtle extends RaceTurtle {
-	
-	protected Color lineColor = new Color(255, 0, 0); //red
-	
+
 	public SeriousRacerTurtle(GraphicsWindow_ w, double x, double y, int startNumber) {
 		super(w, x, y, startNumber);
+		this.lineColor = new Color(255, 0, 0); //red
 	}
 	
 	@Override

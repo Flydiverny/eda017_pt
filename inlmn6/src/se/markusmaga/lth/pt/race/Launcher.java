@@ -11,7 +11,8 @@ public class Launcher extends OptionsLauncher {
 	}
 	
 	private void initiate() {
-
+		RaceWindow rw = new RaceWindow(500,300);
+		rw.performRace();
 	}
 
 	/**
@@ -19,7 +20,7 @@ public class Launcher extends OptionsLauncher {
 	 */
 	@Override
 	protected void setupMenu() {
-		addMenuAction("", new IFunction() {
+		addMenuAction("Start Race", new IFunction() {
 			public void execute() {
 				initiate();
 			}

@@ -21,9 +21,12 @@ public abstract class RaceTurtle extends Turtle {
 		
 		die = new Die(dieSize);
 		this.startNumber = startNumber;
-		
-		left(90);
+		setSpeed(2000);
+		right(90);
 		penDown();
+		
+		
+		setSpeed(5);
 	}
 	
 	public int getStartNumber() {
@@ -45,6 +48,6 @@ public abstract class RaceTurtle extends Turtle {
 	public abstract String getType();
 	
 	public String toString() {
-		return "Numer " + getStartNumber() + " (" + getType() + ")";
+		return "Number " + getStartNumber() + " (" + getType() + ")";
 	}
 }

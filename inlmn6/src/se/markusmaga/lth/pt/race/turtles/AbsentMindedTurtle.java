@@ -6,15 +6,13 @@ import se.lth.cs.pt.graphics.Color;
 import java.util.*;
 
 public class AbsentMindedTurtle extends RaceTurtle {
-	
-	protected Color lineColor = new Color(0, 191, 255); //blue
-	
 	private int absentPercent;
 	
 	public AbsentMindedTurtle(GraphicsWindow_ w, double x, double y, int startNumber, int absentPercent) {
 		super(w, x, y, startNumber);
 		
 		this.absentPercent = absentPercent;
+		this.lineColor = new Color(0, 191, 255); //blue
 	}
 	
 	@Override
@@ -31,6 +29,6 @@ public class AbsentMindedTurtle extends RaceTurtle {
 	
 	@Override
 	public String getType() {
-		return "AbsentMindedTurtle -- " + this.absentPercent + " % absent.";
+		return "AbsentMindedTurtle -- " + this.absentPercent + " % absent";
 	}
 }

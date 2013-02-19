@@ -7,15 +7,15 @@ public class MoleTurtle extends RaceTurtle {
 	private static final int CHANCE_TO_HIDE = 20;
 	private static final int CHANCE_TO_SURFACE = 40;
 	
-	protected Color lineColor = new Color(139, 69, 19); //brown
-	
 	public MoleTurtle(GraphicsWindow_ w, double x, double y, int startNumber) {
 		super(w, x, y, startNumber);
+		this.lineColor = new Color(139, 69, 19); //brown
 	}
 	
 	@Override
 	public void raceStep() {
 		int steps = getNextStep();
+		// chance to hide / unhide
 		forward(steps);
 	}
 	
