@@ -75,6 +75,7 @@ public class Maze {
 	}
 	
 	public boolean isWalkable(int x, int y) {
+		if(x < 0 || y < 0 || x > this.width || y > this.height) return false;
 		return mazeMatrix[x][y] != MAZE_WALL;
 	}
 }
