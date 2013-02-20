@@ -130,7 +130,7 @@ public class RaceWindow {
 	private void drawGoalLine() {
 		int offset = 25;
 		
-		GoalTurtle g = new GoalTurtle(w, LINE_GOAL_X-5, -offset);
+		AlternatingTurtle g = new AlternatingTurtle(w, LINE_GOAL_X-5, -offset);
 		g.left(180); // look down
 		g.forward(LINE_OFFSET_Y+offset); // walkin 
 		g.drawGoal(LINE_BOT_Y-LINE_OFFSET_Y); // draw 
