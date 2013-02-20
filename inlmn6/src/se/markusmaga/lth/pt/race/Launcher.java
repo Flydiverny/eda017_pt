@@ -29,6 +29,6 @@ public class Launcher extends OptionsLauncher {
 	
 	@Override
 	protected void setupOptions() {
-		addOption("", "", DEFAULT_VALUE);
+		//addOption("", "", DEFAULT_VALUE);
 	}
 }

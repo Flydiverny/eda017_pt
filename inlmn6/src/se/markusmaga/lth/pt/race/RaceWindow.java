@@ -63,7 +63,7 @@ public class RaceWindow {
 		
 		w.show();
 		
-		//drawGoalLine();
+		drawGoalLine();
 		race();
 	}
 	
@@ -130,14 +130,15 @@ public class RaceWindow {
 	private void drawGoalLine() {
 		int offset = 25;
 		
-		GoalTurtle g = new GoalTurtle(w, LINE_GOAL_X, -offset);
+		GoalTurtle g = new GoalTurtle(w, LINE_GOAL_X-5, -offset);
 		g.left(180); // look down
-		g.forward(LINE_OFFSET_Y+offset);
+		g.forward(LINE_OFFSET_Y+offset); // walkin 
 		g.drawGoal(LINE_BOT_Y-LINE_OFFSET_Y); // draw 
+		g.forward(LINE_OFFSET_Y+offset); // walkout
 	}
 	
 	private void generateRacers() {
-		double turtleSpace = (LINE_BOT_Y - LINE_OFFSET_Y) / (nbrOfTurtles + 1); 
+		double turtleSpace = (LINE_BOT_Y-LINE_OFFSET_Y) / (nbrOfTurtles+1.0); 
 	
 		List<StalkerTurtle> stalkers = new ArrayList<StalkerTurtle>();
 		
@@ -203,6 +204,7 @@ public class RaceWindow {
 		GraphicsWindow w = new GraphicsWindow(this.windowWidth, this.windowHeight);
 		
 		w.drawLine(LINE_OFFSET_X, LINE_OFFSET_Y, LINE_OFFSET_X, LINE_BOT_Y, 2, Color.RED);
+		
 		w.hide();
 
 		return w;

@@ -6,7 +6,7 @@ import se.lth.cs.pt.graphics.GraphicsWindow_;
 import se.lth.cs.pt.graphics.Color;
 
 public abstract class RaceTurtle extends Turtle implements Comparable<RaceTurtle> {
-	private static final int DEFAULT_DIE = 12;
+	private static final int DEFAULT_DIE = 8;
 	private static final int DEFAULT_SPEED = 5;
 
 	private int startNumber;

@@ -7,7 +7,7 @@ import java.util.*;
 
 public class MoleTurtle extends RaceTurtle {
 	private static final int CHANCE_TO_HIDE = 20;
-	private static final int CHANCE_TO_SURFACE = 40;
+	private static final int CHANCE_TO_SURFACE = 30;
 	
 	private boolean hidden = false;
 	
@@ -27,9 +27,9 @@ public class MoleTurtle extends RaceTurtle {
 		
 		int randomvalue = rnd.nextInt(100);
 		
-		if(randomvalue < CHANCE_TO_HIDE && hidden) {
+		if(randomvalue < CHANCE_TO_HIDE && !hidden) {
 			hide();
-		} else if(randomvalue < CHANCE_TO_SURFACE && !hidden) {
+		} else if(randomvalue < CHANCE_TO_SURFACE && hidden) {
 			unhide();
 		}
 		

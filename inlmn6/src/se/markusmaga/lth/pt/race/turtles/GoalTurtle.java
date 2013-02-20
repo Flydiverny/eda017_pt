@@ -18,7 +18,7 @@ public class GoalTurtle extends Turtle {
 	}
 	
 	public void drawGoal(int distance) {
-		int blocks = distance / this.lineWidth;
+		int blocks = (int)Math.round(distance / this.lineWidth);
 			
 		penDown();
 		
@@ -30,7 +30,7 @@ public class GoalTurtle extends Turtle {
 		
 		penUp();
 		
-		w.remove(this.sprite);
+		//w.remove(this.sprite);
 	}
 	
 	private void goalDrawer(int blocks) {
@@ -49,11 +49,14 @@ public class GoalTurtle extends Turtle {
 	}
 	
 	private void goalRotation(int blocks) {
+		this.left(90);
+		super.forward(this.lineWidth);
+		
 		switchColor(blocks);
-	
+		
 		this.left(90);
 		super.forward(this.lineWidth);
-		this.left(90);
-		super.forward(this.lineWidth);
+				
+		switchColor(blocks+1);
 	}
 }
