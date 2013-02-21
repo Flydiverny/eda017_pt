@@ -16,7 +16,7 @@ public class DrunkTurtle extends RaceTurtle {
 	
 	@Override
 	public Color getColor() {
-		return new Color(255, 255, 0); //yellow
+		return new Color(255, 215, 0); //yellow
 	}
 	
 	@Override
