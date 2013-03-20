@@ -1,1 +1,1 @@
-java se.markusmaga.lth.pt.race.Launcher
+java -cp $CLASSPATH:./classes/ se.markusmaga.lth.pt.race.Launcher

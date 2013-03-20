@@ -63,7 +63,7 @@ public class RaceWindow {
 		
 		w.show();
 		
-		drawGoalLine();
+		//drawGoalLine();
 		race();
 	}
 	
@@ -204,6 +204,7 @@ public class RaceWindow {
 		GraphicsWindow w = new GraphicsWindow(this.windowWidth, this.windowHeight);
 		
 		w.drawLine(LINE_OFFSET_X, LINE_OFFSET_Y, LINE_OFFSET_X, LINE_BOT_Y, 2, Color.RED);
+		w.drawLine(LINE_GOAL_X, LINE_OFFSET_Y, LINE_GOAL_X, LINE_BOT_Y, 2, Color.RED);
 		
 		w.hide();
 

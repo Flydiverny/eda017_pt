@@ -1,1 +1,1 @@
-java se.markusmaga.lth.pt.mandelbrot.Launcher
+java -cp $CLASSPATH:./classes/ se.markusmaga.lth.pt.mandelbrot.Launcher
