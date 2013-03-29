@@ -11,7 +11,7 @@ public class Launcher extends OptionsLauncher {
 	}
 	
 	private void initiate() {
-		RaceWindow rw = new RaceWindow(500,300);
+		RaceWindow rw = new RaceWindow(500,800);
 		rw.performRace();
 	}
 

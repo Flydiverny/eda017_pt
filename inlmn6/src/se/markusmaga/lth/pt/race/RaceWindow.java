@@ -21,11 +21,11 @@ public class RaceWindow {
 	private List<RaceTurtle> racers;
 	private GraphicsWindow w;
 	
-	private boolean allowSerious	= true;
-	private boolean allowMole		= true;
-	private boolean allowAbsent		= true;
+	private boolean allowSerious	= false;
+	private boolean allowMole		= false;
+	private boolean allowAbsent		= false;
 	private boolean allowStalker	= true;
-	private boolean allowDrunk		= true;
+	private boolean allowDrunk		= false;
 
 	public RaceWindow(int width, int height) {
 		this(width, height, 50, 50);
@@ -143,7 +143,9 @@ public class RaceWindow {
 		List<StalkerTurtle> stalkers = new ArrayList<StalkerTurtle>();
 		
 		Random rnd = new Random();
-		int number = 0;
+		int number = 1;
+								racers.add(new DrunkTurtle(w, LINE_OFFSET_X, LINE_OFFSET_Y + turtleSpace*number, number, rnd.nextInt(5)+1));
+
 		do {
 			switch(rnd.nextInt(5)) {
 				case 0:

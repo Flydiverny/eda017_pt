@@ -4,3 +4,6 @@
 [submodule "inlmn6/src/se/markusmaga/lth/pt/helper"]
 	path = inlmn6/src/se/markusmaga/lth/pt/helper
 	url = git@git.nadilus.com:pt/pt-helper.git
+[submodule "snake/src/se/markusmaga/lth/pt/helper"]
+	path = snake/src/se/markusmaga/lth/pt/helper
+	url = git@git.nadilus.com:pt/pt-helper.git
