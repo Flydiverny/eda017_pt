@@ -7,7 +7,6 @@ import se.lth.cs.pt.graphics.Color;
 
 public abstract class RaceTurtle extends Turtle implements Comparable<RaceTurtle> {
 	private static final int DEFAULT_DIE = 8;
-	private static final int DEFAULT_SPEED = 5;
 
 	private int startNumber;
 	protected Die die;
@@ -22,11 +21,8 @@ public abstract class RaceTurtle extends Turtle implements Comparable<RaceTurtle
 		
 		die = new Die(dieSize);
 		this.startNumber = startNumber;
-		//setSpeed(2000);
 		right(90);
 		penDown();
-		
-		//setSpeed(DEFAULT_SPEED);
 	}
 	
 	public int getStartNumber() {
@@ -53,8 +49,8 @@ public abstract class RaceTurtle extends Turtle implements Comparable<RaceTurtle
 		return "Number " + getStartNumber() + " (" + getType() + ")";
 	}
 	
-	public void forward(int distance)
-	{
+	@Override
+	public void forward(int distance) {
 		double d1 = this.x;
 		double d2 = this.y;
 		this.x += distance * Math.cos(Math.toRadians(this.dir));

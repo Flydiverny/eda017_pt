@@ -8,10 +8,13 @@ import java.util.*;
 public class DrunkTurtle extends RaceTurtle {
 	private int drunkness;
 	
+	private Random rnd;
+	
 	public DrunkTurtle(GraphicsWindow_ w, double x, double y, int startNumber, int drunkness) {
 		super(w, x, y, startNumber);
 		
 		this.drunkness = drunkness;
+		this.rnd = new Random();
 	}
 	
 	@Override
@@ -21,9 +24,6 @@ public class DrunkTurtle extends RaceTurtle {
 	
 	@Override
 	public void raceStep() {
-		Random rnd = new Random();
-		int steps = getNextStep();
-		
 		int action = rnd.nextInt(2);
 		
 		if(action == 1) {
@@ -32,7 +32,7 @@ public class DrunkTurtle extends RaceTurtle {
 			right(3*drunkness);
 		}
 		
-		forward(steps);
+		forward(getNextStep());
 	}
 	
 	@Override

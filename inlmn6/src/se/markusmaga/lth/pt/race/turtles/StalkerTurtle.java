@@ -34,15 +34,13 @@ public class StalkerTurtle extends RaceTurtle {
 	
 	@Override
 	public void raceStep() {
-		int steps = getNextStep();
-		
 		double dx = target.getX() - this.getX();
 		double dy = target.getY() - this.getY();
 
 		int newAngle = (int)Math.toDegrees(Math.atan2(dy, dx));
 		right(dir+newAngle);
 
-		forward(steps);
+		forward(getNextStep());
 	}
 	
 	@Override

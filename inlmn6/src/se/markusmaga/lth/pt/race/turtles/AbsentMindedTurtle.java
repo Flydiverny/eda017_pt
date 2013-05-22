@@ -8,10 +8,13 @@ import java.util.*;
 public class AbsentMindedTurtle extends RaceTurtle {
 	private int absentPercent;
 	
+	private Random rnd;
+	
 	public AbsentMindedTurtle(GraphicsWindow_ w, double x, double y, int startNumber, int absentPercent) {
 		super(w, x, y, startNumber);
 		
 		this.absentPercent = absentPercent;
+		rnd = new Random();
 	}
 	
 	@Override
@@ -21,14 +24,11 @@ public class AbsentMindedTurtle extends RaceTurtle {
 	
 	@Override
 	public void raceStep() {
-		Random rnd = new Random();
-		int steps = getNextStep();
-		
 		int action = rnd.nextInt(100);
 		
 		if(action <= absentPercent) return;
 		
-		forward(steps);
+		forward(getNextStep());
 	}
 	
 	@Override

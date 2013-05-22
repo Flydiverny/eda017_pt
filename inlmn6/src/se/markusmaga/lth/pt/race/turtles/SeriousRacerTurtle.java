@@ -16,8 +16,7 @@ public class SeriousRacerTurtle extends RaceTurtle {
 	
 	@Override
 	public void raceStep() {
-		int steps = getNextStep();
-		forward(steps);
+		forward(getNextStep());
 	}
 	
 	@Override

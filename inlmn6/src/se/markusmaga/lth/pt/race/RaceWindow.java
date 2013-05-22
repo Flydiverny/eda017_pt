@@ -21,11 +21,11 @@ public class RaceWindow {
 	private List<RaceTurtle> racers;
 	private GraphicsWindow w;
 	
-	private boolean allowSerious	= false;
-	private boolean allowMole		= false;
-	private boolean allowAbsent		= false;
+	private boolean allowSerious	= true;
+	private boolean allowMole		= true;
+	private boolean allowAbsent		= true;
 	private boolean allowStalker	= true;
-	private boolean allowDrunk		= false;
+	private boolean allowDrunk		= true;
 
 	public RaceWindow(int width, int height) {
 		this(width, height, 50, 50);
@@ -82,7 +82,7 @@ public class RaceWindow {
 					i--;
 				}
 			}
-		} while(!fullWinnerTable(winners));
+		} while(!fullWinnerTable(winners) && racers.size() != 0);
 		
 		printWinners(winners);
 	}
@@ -96,8 +96,6 @@ public class RaceWindow {
 			if(t.getAmountOfSteps() != lastSteps) {
 				lastSteps = t.getAmountOfSteps();
 				placement++;
-				
-				if(placement > 3) return true;
 			}
 		}
 		
@@ -143,8 +141,7 @@ public class RaceWindow {
 		List<StalkerTurtle> stalkers = new ArrayList<StalkerTurtle>();
 		
 		Random rnd = new Random();
-		int number = 1;
-								racers.add(new DrunkTurtle(w, LINE_OFFSET_X, LINE_OFFSET_Y + turtleSpace*number, number, rnd.nextInt(5)+1));
+		int number = 0;
 
 		do {
 			switch(rnd.nextInt(5)) {

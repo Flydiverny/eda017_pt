@@ -11,8 +11,11 @@ public class MoleTurtle extends RaceTurtle {
 	
 	private boolean hidden = false;
 	
+	private Random rnd;
+	
 	public MoleTurtle(GraphicsWindow_ w, double x, double y, int startNumber) {
 		super(w, x, y, startNumber);
+		rnd = new Random();
 	}
 	
 	@Override
@@ -22,9 +25,6 @@ public class MoleTurtle extends RaceTurtle {
 	
 	@Override
 	public void raceStep() {
-		Random rnd = new Random();
-		int steps = getNextStep();
-		
 		int randomvalue = rnd.nextInt(100);
 		
 		if(randomvalue < CHANCE_TO_HIDE && !hidden) {
@@ -33,13 +33,12 @@ public class MoleTurtle extends RaceTurtle {
 			unhide();
 		}
 		
-		forward(steps);
+		forward(getNextStep());
 	}
 	
 	public void hide() {
 		penUp();
 		hidden = true;
-		//visible(false);
 	}
 	
 	public void unhide() {
